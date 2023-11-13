@@ -1,0 +1,23 @@
+const express = require("express");
+const app = express();
+const cors = require("cors");
+const passport = require("passport");
+require("dotenv").config();
+require("./config/config.db");
+const { addTable } = require("./components/model/model.index");
+// addTable();
+// dropTable();
+const routerProd = require("./components/router/router.product");
+const routerAuth = require("./components/router/router.auth");
+const routerUser = require("./components/router/router.user");
+const port = process.env.PORT || 8080;
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
+app.use(cors());
+app.use(passport.initialize());
+app.use("/api/v1", routerProd);
+app.use("/api/v1/auth", routerAuth);
+app.use("/api/v1/user", routerUser);
+
+app.listen(port, () => console.log(`Port is connected ${port}`));
