@@ -46,13 +46,13 @@ const Header = () => {
         </Link>
 
         <nav className="w-3/5">
-          <ul className="flex items-center gap-x-20">
+          <ul className="flex items-center gap-x-20 text-[17px] font-medium text-slate-900">
             <li>
               <Link
                 to="/dashboard"
-                className={`text-[17px] font-medium text-slate-900 hover:text-gray-600 transition-all ${
+                className={`bg-transparent hover:bg-gradient-to-r hover:from-gray-500 hover:to-gray-600 hover:text-white p-3 transition-all duration-300 ${
                   location.pathname === "/dashboard"
-                    ? "px-2.5 py-1 border-b-2 border-gray-600"
+                    ? "border-b-2 border-gray-600"
                     : ""
                 }`}
               >
@@ -62,25 +62,13 @@ const Header = () => {
             <li>
               <Link
                 to="/course/my"
-                className={`text-[17px] font-medium text-slate-900 hover:text-gray-600 transition-all duration-300 ${
+                className={`bg-transparent hover:bg-gradient-to-r hover:from-gray-500 hover:to-gray-600 hover:text-white p-3 transition-all duration-300 ${
                   location.pathname.startsWith("/course/my")
-                    ? "px-2.5 py-1 border-b-2 border-gray-600"
+                    ? "border-b-2 border-gray-600"
                     : ""
                 }`}
               >
                 My Courses
-              </Link>
-            </li>
-            <li>
-              <Link
-                to={`/blogs/all`}
-                className={`text-[17px] font-medium text-slate-900 hover:text-gray-600 ${
-                  location.pathname.startsWith("/blogs/all")
-                    ? "px-2.5 py-1 border-b-2 border-gray-600"
-                    : ""
-                }`}
-              >
-                Blog
               </Link>
             </li>
           </ul>
