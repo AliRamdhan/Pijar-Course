@@ -1,16 +1,16 @@
 const {
-  getAllCategory,
+  createOneCourse,
   createOneCategory,
+  createOneToolsCourse,
+  createOneMateriCourse,
+  createOneOptionCourse,
   getAllCourse,
+  getAllCategory,
+  getAllMateriCourse,
+  getAllToolsCourse,
+  getAllOptionsCourse,
   getDetailsCourse,
   getCourseByCategory,
-  createOneCourse,
-  getAllMateriCourse,
-  createOneMateriCourse,
-  getAllToolsCourse,
-  createOneToolsCourse,
-  getAllOptionsCourse,
-  createOneOptionCourse,
 } = require("../controller/controller.product");
 const router = require("express").Router();
 const {

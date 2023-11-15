@@ -1,12 +1,13 @@
 const Role = require("./model.user.role");
 const User = require("./model.user");
 const CatagoryCourse = require("./model.category.course");
+const Course = require("./model.course");
 const ToolsCourse = require("./model.course.tools");
 const MateriCourse = require("./model.course.materi");
 const VariationOptionCourse = require("./model.course.variation.option");
-const Course = require("./model.course");
 const OrderCourse = require("./model.orders.course");
 const OrderItemsCourse = require("./model.orders.items.course");
+const UserCourse = require("./model.user.course");
 const sequelize = require("../../config/config.db");
 
 async function createRoles(roleDataArray) {

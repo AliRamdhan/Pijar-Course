@@ -8,7 +8,7 @@ const TabCourse = () => {
   const [c, setc] = useState([1, 2, 3, 4, 5]);
   const customTheme = {
     tab: {
-      base: "flex flex-col gap-1",
+      base: "flex flex-col gap-1 px-16",
       tablist: {
         tabitem: {
           base: "flex items-center justify-center px-4 py-2.5 rounded-lg text-lg font-medium first:ml-0 disabled:cursor-not-allowed disabled:text-gray-700 disabled:dark:text-gray-800 focus:ring-4 focus:ring-gray-300 focus:outline-none",
@@ -44,7 +44,7 @@ const TabCourse = () => {
                       </p>
                       <button
                         type="button"
-                        class="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                        className="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                       >
                         Alternative
                       </button>
@@ -68,7 +68,7 @@ const TabCourse = () => {
                       </p>
                       <button
                         type="button"
-                        class="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                        className="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                       >
                         Alternative
                       </button>
@@ -92,7 +92,7 @@ const TabCourse = () => {
                       </p>
                       <button
                         type="button"
-                        class="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+                        className="hidden group-hover:inline-block py-2.5 px-5 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
                       >
                         Alternative
                       </button>

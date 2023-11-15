@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
-import {
-  Button,
-  Modal,
-  Textarea,
-  Label,
-  TextInput,
-  Dropdown,
-} from "flowbite-react";
+import { Button, Dropdown } from "flowbite-react";
 import Hamburger from "hamburger-react";
 import { Link, useLocation } from "react-router-dom";
 import UserServices from "../../services/user.service";
 import { logout } from "../../actions/auth";
 import { useDispatch } from "react-redux";
-import { FiLogOut, FiSettings, FiUser } from "react-icons/fi";
+import { FiLogOut, FiSettings, FiUser, FiShoppingBag } from "react-icons/fi";
 const Header = () => {
   const [user, setUser] = useState(null);
   const [isOpen, setOpen] = useState(false);
@@ -106,6 +99,9 @@ const Header = () => {
               </Dropdown.Item>
               <Dropdown.Item icon={FiSettings}>
                 <Link to="/settings">Settings</Link>
+              </Dropdown.Item>
+              <Dropdown.Item icon={FiShoppingBag}>
+                <Link to="/course/history">History</Link>
               </Dropdown.Item>
               <Dropdown.Divider />
               <Dropdown.Item icon={FiLogOut}>

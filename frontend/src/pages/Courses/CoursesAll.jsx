@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import { Card } from "flowbite-react";
 import { BsFillStarFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import UserServices from "../../services/user.service";
+
 const CoursesAll = () => {
   const [scroll, scrollValue] = useState(0);
   const [courses, setCourses] = useState([]);

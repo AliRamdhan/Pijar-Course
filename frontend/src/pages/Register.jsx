@@ -13,9 +13,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [retypePassword, setretypePassword] = useState("");
-  const [firstname, setFirstname] = useState("sssssssssss");
-  const [lastname, setLastname] = useState("dddddd");
-  const [phone, setPhone] = useState("08934254353");
+  const [firstname, setFirstname] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [phone, setPhone] = useState("");
   const [role, setRole] = useState(3);
 
   const handleRegistration = async (e) => {

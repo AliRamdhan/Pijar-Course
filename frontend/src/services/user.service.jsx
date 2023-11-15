@@ -6,9 +6,8 @@ const AXIOS_URL_ORDER = process.env.URL_HEADER_USER;
 const AXIOS_URL_AUTH = process.env.URL_API_AUTH;
 
 class UserService {
-
   // Authentication System
-  
+
   getUserBoard() {
     return axios.get(AXIOS_URL_AUTH + "/home", { headers: authHeader() });
   }
@@ -20,7 +19,6 @@ class UserService {
   getAdminBoard() {
     return axios.get(AXIOS_URL_AUTH + "/admin/home", { headers: authHeader() });
   }
-  
 
   // Ecommerce
 
@@ -56,8 +54,23 @@ class UserService {
       OrdersItems_option_course: option,
     });
   }
+
   getMostOptionOrderCourse(courseId) {
     return axios.get(AXIOS_URL_ORDER + `/order/most-opt/${courseId}`);
+  }
+
+  getHistoryOrderItemsUser(userId) {
+    return axios.get(AXIOS_URL_ORDER + `/history/${userId}`);
+  }
+
+  getCourseByUser(userId) {
+    return axios.get(AXIOS_URL_ORDER + `/course/my/${userId}`);
+  }
+  createSuccesOrder(userId, orderItemId) {
+    return axios.post(AXIOS_URL_ORDER + "/payment", {
+      orderItemId: orderItemId,
+      userId: userId,
+    });
   }
 }
 

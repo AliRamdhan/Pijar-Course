@@ -19,10 +19,10 @@ const authRegisterUser = async (req, res) => {
 
   const schema = Joi.object({
     User_username: Joi.string().alphanum().min(3).max(30).required(),
-    User_firstname: Joi.string().alphanum().min(3).max(30).required(),
-    User_lastname: Joi.string().alphanum().min(3).max(30).required(),
-    User_username: Joi.string().alphanum().min(3).max(30).required(),
-    User_phoneNumber: Joi.string().min(8).max(13).required(),
+    User_firstname: Joi.string().alphanum().min(3).max(30),
+    User_lastname: Joi.string().alphanum().min(3).max(30),
+    User_username: Joi.string().alphanum().min(3).max(30),
+    User_phoneNumber: Joi.string().min(8).max(13),
     User_email: Joi.string()
       .email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } })
       .required(),

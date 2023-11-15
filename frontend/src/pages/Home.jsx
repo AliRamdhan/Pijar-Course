@@ -366,7 +366,7 @@ const Home = () => {
           </Carousel>
         </section>
       </main>
-      <footer className="w-full bg-gradient-to-r from-neutral-500 to-neutral-800 flex justify-center es:px-1">
+      <footer className="w-full bg-gradient-to-r from-gray-800 to-gray-900 flex justify-center es:px-1">
         <Footer />
       </footer>
     </>

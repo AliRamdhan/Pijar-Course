@@ -17,6 +17,7 @@ import BlogAll from "./pages/Blogs/BlogsAll";
 import ProtectedRoute from "./ProtectedRoute";
 import Dashboard from "./pages/User/Dashboard";
 import CourseUser from "./pages/User/CourseUser";
+import History from "./pages/User/History";
 const Router = createBrowserRouter([
   {
     path: "/",
@@ -72,6 +73,15 @@ const Router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <CourseUser />
+      </ProtectedRoute>
+    ),
+    errorElement: <Error />,
+  },
+  {
+    path: "/course/history",
+    element: (
+      <ProtectedRoute>
+        <History />
       </ProtectedRoute>
     ),
     errorElement: <Error />,

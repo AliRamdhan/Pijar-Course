@@ -1,15 +1,45 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/user/Header";
 import Banner from "../../components/user/Banners";
 import TimelineCourse from "../../components/user/TimelineCourse";
 import Footer from "../../components/user/Footer";
 import { FiArrowRightCircle, FiBook } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import UserServices from "../../services/user.service";
 const Dashboard = () => {
   const [scroll, scrollValue] = useState(0);
+  const [user, setUser] = useState("");
+  const [course, setCourse] = useState([]);
   window.addEventListener("scroll", function scroll() {
     scrollValue(window.Math.round(scrollY));
   });
+  useEffect(() => {
+    userData();
+  }, []);
+  useEffect(() => {
+    if (user.id) {
+      courseUser(user.id);
+    }
+  }, [user.id]);
+  const userData = async () => {
+    try {
+      const response = await UserServices.getUserBoard();
+      // console.log(response.data.User);
+      setUser(response.data.User);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const courseUser = async (userId) => {
+    try {
+      const response = await UserServices.getCourseByUser(userId);
+      // console.log(response.data.Course);
+      setCourse(response.data.Course);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <header
@@ -19,8 +49,8 @@ const Dashboard = () => {
       >
         <Header />
       </header>
-      <main className="w-full flex justify-center items-center pt-28 gap-y-28 h-96 mb-4 es:px-1">
-        <section className="w-full flex flex-col justify-center h-72 px-8 gap-4 bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg">
+      <main className="w-full flex justify-center items-center pt-44 gap-y-28 h-96 mb-4 es:px-1">
+        <section className="w-full flex flex-col justify-center h-80 px-8 gap-4 bg-gradient-to-b from-gray-900 to-gray-800 rounded-lg">
           <div className="text-white">
             <h1 className="text-3xl font-semibold">
               Selamat datang Farhan Ali Ramadhan!
@@ -29,10 +59,10 @@ const Dashboard = () => {
               Semoga aktivitas belajarmu menyenangkan.
             </h3>
           </div>
-          <Banner />
+          {course.length >= 0 ? <Banner courses={course} /> : <p>Loading...</p>}
         </section>
       </main>
-      <main className="w-full min-h-screen es:px-1">
+      <main className="w-full min-h-screen pt-8 es:px-1">
         <section className="w-full px-8 mt-8">
           <p className="text-2xl font-medium">Kelengkapan Profil Anda</p>
           <div className="w-full h-8 bg-gray-200 rounded-full dark:bg-gray-700 mt-3 mb-1.5">
@@ -50,13 +80,15 @@ const Dashboard = () => {
             Academy.
           </p>
           <div className="w-full flex justify-end relative px-8 mt-3">
-            <Link
-              to="/profile"
-              className="flex items-center gap-3 text-lg font-medium hover:underline transition-transform duration-300"
-            >
-              <p className="pr-8">Lengkapi</p>
-              <FiArrowRightCircle className="w-32 h-5 pl-16 text-gray-800 font-bold hover:translate-x-3 transition-transform duration-300 absolute" />
-            </Link>
+            <div className="group">
+              <Link
+                to="/profile"
+                className="flex items-center gap-3 text-lg font-medium  group-hover:underline transition-transform duration-300 "
+              >
+                <p>Lengkapi</p>
+                <FiArrowRightCircle className="text-2xl p-0.5 text-gray-800 group-hover:translate-x-3 transition-transform duration-300 " />
+              </Link>
+            </div>
           </div>
         </section>
         <section className="w-full px-4 mt-3">
@@ -65,7 +97,11 @@ const Dashboard = () => {
             <h2 className="text-lg font-medium">Aktivitas Belajar</h2>
           </div>
           <div className="px-4 py-2">
-            <TimelineCourse />
+            {course.length >= 0 ? (
+              <TimelineCourse courses={course} />
+            ) : (
+              <p>Loading...</p>
+            )}
           </div>
         </section>
       </main>

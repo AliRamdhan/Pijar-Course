@@ -1,12 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../components/user/Header";
 import Footer from "../../components/user/Footer";
 import TabCourse from "../../components/user/TabCourse";
+import UserServices from "../../services/user.service";
 const CourseUser = () => {
   const [scroll, scrollValue] = useState(0);
+  const [user, setUser] = useState("");
+  const [course, setCourse] = useState([]);
   window.addEventListener("scroll", function scroll() {
     scrollValue(window.Math.round(scrollY));
   });
+  useEffect(() => {
+    userData();
+  }, []);
+  useEffect(() => {
+    if (user.id) {
+      courseUser(user.id);
+    }
+  }, [user.id]);
+  const userData = async () => {
+    try {
+      const response = await UserServices.getUserBoard();
+      // console.log(response.data.User);
+      setUser(response.data.User);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const courseUser = async (userId) => {
+    try {
+      const response = await UserServices.getCourseByUser(userId);
+      // console.log(response.data.Course);
+      setCourse(response.data.Course);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <header
@@ -16,11 +46,19 @@ const CourseUser = () => {
       >
         <Header />
       </header>
-      <main className="w-full h-[800px] flex flex-col items-center pt-32 es:px-1">
-        <div className="w-full px-20 py-8">
+      <main className="w-full h-[800px] flex flex-col items-center pt-32 px-20">
+        <div className="w-full  py-8">
           <p className="text-2xl text-gray-400 font-medium">Progress Belajar</p>
         </div>
-        <TabCourse />
+        <div>
+          {course.length > 0 ? (
+            // Render your component with orders data
+            <TabCourse courses={course} />
+          ) : (
+            // Render loading state or some other UI when orders are not available
+            <p>Loading...</p>
+          )}
+        </div>
       </main>
       <footer className="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
         <Footer />

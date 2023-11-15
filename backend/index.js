@@ -10,6 +10,7 @@ const { addTable } = require("./components/model/model.index");
 const routerProd = require("./components/router/router.product");
 const routerAuth = require("./components/router/router.auth");
 const routerUser = require("./components/router/router.user");
+const routerUserCourse = require("./components/router/router.user.course");
 const port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -19,5 +20,6 @@ app.use(passport.initialize());
 app.use("/api/v1", routerProd);
 app.use("/api/v1/auth", routerAuth);
 app.use("/api/v1/user", routerUser);
+app.use("/api/v1/user/course", routerUserCourse);
 
 app.listen(port, () => console.log(`Port is connected ${port}`));
